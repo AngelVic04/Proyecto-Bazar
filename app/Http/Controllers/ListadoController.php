@@ -12,7 +12,7 @@ use App\Areas;
 use App\Producto;
 use DB;
 
-class BienvenidoController extends Controller
+class ListadoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,7 +28,7 @@ class BienvenidoController extends Controller
             ->where('descripcion','LIKE','%'.$query.'%')
             ->orderBy('id','desc')
             ->paginate(7);
-            return view('empezar.index',["pericos"=>$pericos,"searchText"=>$query]);
+            return view('listar.index',["pericos"=>$pericos,"searchText"=>$query]);
         }
     }
 
@@ -39,9 +39,7 @@ class BienvenidoController extends Controller
      */
     public function create()
     {
-        //$users = Auth::user()->name;
-        $codigos = Areas::all();
-        return view('empezar.create',compact('codigos'));
+
     }
 
     /**
@@ -77,7 +75,7 @@ class BienvenidoController extends Controller
      */
     public function show($id)
     {
-        return view("empezar.show",["perico"=>Producto::findOrFail($id)]);
+        return view("listar.show",["perico"=>Producto::findOrFail($id)]);
     }
 
     /**
@@ -88,8 +86,7 @@ class BienvenidoController extends Controller
      */
     public function edit($id)
     {
-        $codigos = Areas::all();
-        return view("empezar.edit",["perico"=>Producto::findOrFail($id)], compact('codigos')); 
+
     }
 
     /**
@@ -106,14 +103,14 @@ class BienvenidoController extends Controller
         $perico->preciopropuesto=$request->get('preciopropuesto');
         $perico->disponibles=$request->get('disponibles');
         $perico->cliente_vende=Auth::user()->id;
-        //$perico->area_id=$request->get('area_id');
+        $perico->area_id=$request->get('area_id');
         if(Input::hasFile('imagen')){
     		$file=Input::file('imagen');
     		$file->move(public_path().'/imagenes/productos/',$file->getClientOriginalName());
     		$perico->imagen=$file->getClientOriginalName();
     	}
         $perico->update();
-        return Redirect::to('empezar');
+        return Redirect::to('listar');
     }
 
     /**
@@ -124,8 +121,6 @@ class BienvenidoController extends Controller
      */
     public function destroy($id)
     {
-        $perico=Producto::findOrFail($id);
-    	$perico->delete();
-    	return Redirect::to('empezar');
+
     }
 }

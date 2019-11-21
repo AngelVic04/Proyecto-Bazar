@@ -19,8 +19,8 @@
       <li><a href="/encargado">Listar de los clientes</a></li>
       <li><a href="/password">Recuperar Contraseña</a></li> 
       <li><a href="/area">Areas</a></li>
-      <li><a href="/producto">Lista de los productos</a></li>
-      <li><a href="/consignado">No consignado aún</a></li>
+      <li><a href="/listar">Lista de los productos</a></li>
+      <li><a href="/consignado">Consignado</a></li>
         <li><a href="/pagos">Recibir pagos</a></li>
         <li><a href="/recuperar">Recuperar y listar</a></li>
         <li><a class="dropdown-item" href="{{ route('logout') }}"

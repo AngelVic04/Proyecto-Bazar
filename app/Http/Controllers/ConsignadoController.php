@@ -12,7 +12,7 @@ use App\Areas;
 use App\Producto;
 use DB;
 
-class BienvenidoController extends Controller
+class ConsignadoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,7 +28,7 @@ class BienvenidoController extends Controller
             ->where('descripcion','LIKE','%'.$query.'%')
             ->orderBy('id','desc')
             ->paginate(7);
-            return view('empezar.index',["pericos"=>$pericos,"searchText"=>$query]);
+            return view('consignado.index',["pericos"=>$pericos,"searchText"=>$query]);
         }
     }
 
@@ -40,8 +40,8 @@ class BienvenidoController extends Controller
     public function create()
     {
         //$users = Auth::user()->name;
-        $codigos = Areas::all();
-        return view('empezar.create',compact('codigos'));
+        //$codigos = Areas::all();
+        //return view('empezar.create',compact('codigos'));
     }
 
     /**
@@ -58,6 +58,8 @@ class BienvenidoController extends Controller
         $perico->disponibles=$request->get('disponibles');
         $perico->cliente_vende=Auth::user()->id;
         $perico->area_id=$request->get('area_id');
+        $perico->consignado=$request->get('consignado');
+        $perico->preciovendido=$request->get('preciovendido');
         //$perico->cliente_vende = 5;
         if(Input::hasFile('imagen')){
     		$file=Input::file('imagen');
@@ -66,7 +68,7 @@ class BienvenidoController extends Controller
     	}
 
         $perico->save();
-        return Redirect::to('empezar');
+        return Redirect::to('consignado');
     }
 
     /**
@@ -77,7 +79,7 @@ class BienvenidoController extends Controller
      */
     public function show($id)
     {
-        return view("empezar.show",["perico"=>Producto::findOrFail($id)]);
+        return view("consignado.show",["perico"=>Producto::findOrFail($id)]);
     }
 
     /**
@@ -89,7 +91,7 @@ class BienvenidoController extends Controller
     public function edit($id)
     {
         $codigos = Areas::all();
-        return view("empezar.edit",["perico"=>Producto::findOrFail($id)], compact('codigos')); 
+        return view("consignado.edit",["perico"=>Producto::findOrFail($id)], compact('codigos')); 
     }
 
     /**
@@ -107,13 +109,15 @@ class BienvenidoController extends Controller
         $perico->disponibles=$request->get('disponibles');
         $perico->cliente_vende=Auth::user()->id;
         //$perico->area_id=$request->get('area_id');
+        $perico->consignado=$request->get('consignado');
+        $perico->preciovendido=$request->get('preciovendido');
         if(Input::hasFile('imagen')){
     		$file=Input::file('imagen');
     		$file->move(public_path().'/imagenes/productos/',$file->getClientOriginalName());
     		$perico->imagen=$file->getClientOriginalName();
     	}
         $perico->update();
-        return Redirect::to('empezar');
+        return Redirect::to('consignado');
     }
 
     /**

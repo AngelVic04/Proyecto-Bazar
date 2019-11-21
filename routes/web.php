@@ -42,3 +42,5 @@ Route::resource('/encargado','EncargadoController')->middleware('auth');
 Route::resource('/password', 'PasswordController')->middleware('auth');
 Route::resource('/area','AreasController')->middleware('auth');
 Route::resource('/empezar','BienvenidoController')->middleware('auth');
+Route::resource('/listar','ListadoController')->middleware('auth');
+Route::resource('/consignado','ConsignadoController')->middleware('auth');

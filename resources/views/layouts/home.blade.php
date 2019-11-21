@@ -17,7 +17,6 @@
   <div id="menu">
     <ul>
       <li><a href="/empezar">Crear un producto</a></li>
-      <li><a href="/listar">Listar de los productos</a></li>
       <li><a href="/revisar">Revisar el catalago</a></li>
       <li><a href="/gusto">Proponerse para comprar un producto</a></li>
       <li><a href="/comprar">Los producto comprados</a></li>

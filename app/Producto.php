@@ -17,6 +17,7 @@ class Producto extends Model
 		'descripcion',
         'preciopropuesto',
         'consignado',
+        'preciovendido',
         'disponibles',
         'imagen'
     ];
