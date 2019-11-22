@@ -17,9 +17,10 @@
   <div id="menu">
     <ul>
       <li><a href="/empezar">Crear un producto</a></li>
-      <li><a href="/revisar">Revisar el catalago</a></li>
-      <li><a href="/gusto">Proponerse para comprar un producto</a></li>
-      <li><a href="/comprar">Los producto comprados</a></li>
+      <li><a href="/ventas">Ventas en el bazar</a></li>
+      <li><a href="/comprados">Los producto comprados</a></li>
+      <li><a href="">Producto Vendido</a>
+      <li><a href="">Producto Pagado</a>
         <li><a class="dropdown-item" href="{{ route('logout') }}"
             onclick="event.preventDefault();
            document.getElementById('logout-form').submit();">

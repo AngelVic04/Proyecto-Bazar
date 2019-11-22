@@ -44,3 +44,7 @@ Route::resource('/area','AreasController')->middleware('auth');
 Route::resource('/empezar','BienvenidoController')->middleware('auth');
 Route::resource('/listar','ListadoController')->middleware('auth');
 Route::resource('/consignado','ConsignadoController')->middleware('auth');
+Route::resource('/recuperar', 'RecuperarController')->middleware('auth');
+Route::resource('/ventas', 'VentaController')->middleware('auth');
+Route::resource('/comprar', 'ComprarController')->middleware('auth');
+Route::resource('/comprados', 'CompradosController')->middleware('auth');

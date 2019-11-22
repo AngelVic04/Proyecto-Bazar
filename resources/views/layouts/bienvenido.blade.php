@@ -21,7 +21,7 @@
       <li><a href="/area">Areas</a></li>
       <li><a href="/listar">Lista de los productos</a></li>
       <li><a href="/consignado">Consignado</a></li>
-        <li><a href="/pagos">Recibir pagos</a></li>
+        <li><a href="/comprar">Producto Comprado</a></li>
         <li><a href="/recuperar">Recuperar y listar</a></li>
         <li><a class="dropdown-item" href="{{ route('logout') }}"
             onclick="event.preventDefault();
